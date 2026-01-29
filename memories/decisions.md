@@ -19,3 +19,6 @@
 ### 2026-01-29 22:09
 *Context: Finance project*
 - Chose safe import speed (0.4 tx/sec with 0.1s delay) for Notion API to avoid rate limiting during bulk import
+
+### 2026-01-29 23:01
+- Idea logged: Morning Briefs system - daily voice briefing at 08:00 CET via Telegram. Stack: OpenAI TTS (alloy/nova voice), wttr.in weather API, Google Calendar API, Notion API for tasks. Phases: content design, technical setup, cron automation, 2-week testing cycle. Parked for future implementation. Idea backlog - morning briefs

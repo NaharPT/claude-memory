@@ -287,12 +287,12 @@
 <body>
     <div class="header">
         <h1>Claude Memory Dashboard</h1>
-        <span class="timestamp">Last updated: 2026-01-29 22:58 | Auto-refreshes every 60s</span>
+        <span class="timestamp">Last updated: 2026-01-29 23:01 | Auto-refreshes every 60s</span>
     </div>
 
     <div class="stats-row">
         <div class="stat-card purple">
-            <div class="number">4</div>
+            <div class="number">5</div>
             <div class="label">Total Phases</div>
         </div>
         <div class="stat-card green">
@@ -304,16 +304,17 @@
             <div class="label">In Progress</div>
         </div>
         <div class="stat-card orange">
-            <div class="number">19</div>
+            <div class="number">21</div>
             <div class="label">Memories</div>
         </div>
     </div>
 
     <div class="kanban">
         <div class="kanban-column todo">
-            <h3>To Do <span class="count">2</span></h3>
+            <h3>To Do <span class="count">3</span></h3>
             <div class="kanban-card">Phase 3 TODO: Reorganize imported data (separate Bills, Subscriptions, Transfers from Expenses). Then set up Budgets hierarchy</div>
             <div class="kanban-card">Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)</div>
+            <div class="kanban-card">Morning Briefs TODO: Automated 08:00 CET voice briefing via Telegram. OpenAI TTS (~0.015 EUR/day). Sources: wttr.in (weather), Google Calendar API, Notion API (tasks). ~90s audio, weekdays only. Includes one proactive suggestion per day. Phases: content design, tech setup, cron automation, 2-week validation</div>
         </div>
         <div class="kanban-column progress">
             <h3>In Progress <span class="count">1</span></h3>
@@ -349,6 +350,10 @@
                     <span class="status-badge">Planned</span>
                     Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)
                 </div>
+                <div class="roadmap-item todo">
+                    <span class="status-badge">Planned</span>
+                    Morning Briefs TODO: Automated 08:00 CET voice briefing via Telegram. OpenAI TTS (~0.015 EUR/day). Sources: wttr.in (weather), Google Calendar API, Notion API (tasks). ~90s audio, weekdays only. Includes one proactive suggestion per day. Phases: content design, tech setup, cron automation, 2-week validation
+                </div>
             </div>
         </div>
 
@@ -358,8 +363,8 @@
                 <div class="memory-stat-row">
                     <span class="category-name">Activity log</span>
                     <div class="stat-detail">
-                        <span class="stat-count">4</span>
-                        <span class="stat-time">2026-01-29 22:09</span>
+                        <span class="stat-count">5</span>
+                        <span class="stat-time">2026-01-29 23:01</span>
                     </div>
                 </div>
                 <div class="memory-stat-row">
@@ -372,8 +377,8 @@
                 <div class="memory-stat-row">
                     <span class="category-name">Projects</span>
                     <div class="stat-detail">
-                        <span class="stat-count">5</span>
-                        <span class="stat-time">2026-01-29 22:09</span>
+                        <span class="stat-count">6</span>
+                        <span class="stat-time">2026-01-29 23:01</span>
                     </div>
                 </div>
                 <div class="memory-stat-row">
@@ -389,6 +394,13 @@
         <div class="card activity full-width">
             <h2><span class="icon">A</span> Activity Log</h2>
             <div class="timeline">
+                <div class="timeline-entry">
+                    <div class="timeline-meta">
+                        <span class="timeline-time">2026-01-29 23:01</span>
+                        <span class="context-badge">Finance project</span>
+                    </div>
+                    <span class="timeline-text">Idea logged: Morning Briefs system - daily voice briefing at 08:00 CET via Telegram. Stack: OpenAI TTS (alloy/nova voice), wttr.in weather API, Google Calendar API, Notion API for tasks. Phases: content design, technical setup, cron automation, 2-week testing cycle. Parked for future implementation. Idea backlog - morning briefs</span>
+                </div>
                 <div class="timeline-entry">
                     <div class="timeline-meta">
                         <span class="timeline-time">2026-01-29 22:09</span>
@@ -422,7 +434,7 @@
     </div>
 
     <div class="footer">
-        Claude Memory System | 19 memories across 4 categories | Refresh: python memory.py dashboard
+        Claude Memory System | 21 memories across 4 categories | Refresh: python memory.py dashboard
     </div>
 </body>
 </html>

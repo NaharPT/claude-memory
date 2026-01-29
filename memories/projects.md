@@ -23,3 +23,7 @@
 ### 2026-01-29 22:09
 *Context: Finance project*
 - Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)
+
+### 2026-01-29 23:01
+*Context: Idea backlog*
+- Morning Briefs TODO: Automated 08:00 CET voice briefing via Telegram. OpenAI TTS (~0.015 EUR/day). Sources: wttr.in (weather), Google Calendar API, Notion API (tasks). ~90s audio, weekdays only. Includes one proactive suggestion per day. Phases: content design, tech setup, cron automation, 2-week validation
