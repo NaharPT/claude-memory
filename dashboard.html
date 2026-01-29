@@ -14,6 +14,9 @@
             padding: 24px;
             min-height: 100vh;
         }
+        a { color: #8b5cf6; text-decoration: none; }
+        a:hover { text-decoration: underline; color: #a78bfa; }
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -22,12 +25,37 @@
             padding-bottom: 16px;
             border-bottom: 1px solid #27272a;
         }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
         .header h1 {
             font-size: 28px;
             font-weight: 700;
+        }
+        .header h1 a {
             background: linear-gradient(135deg, #8b5cf6, #06b6d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .header h1 a:hover {
+            opacity: 0.85;
+            text-decoration: none;
+        }
+        .header .repo-link {
+            color: #52525b;
+            font-size: 13px;
+            padding: 4px 10px;
+            border: 1px solid #27272a;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+        .header .repo-link:hover {
+            color: #a1a1aa;
+            border-color: #3f3f46;
+            text-decoration: none;
         }
         .header .timestamp {
             color: #71717a;
@@ -60,7 +88,7 @@
             letter-spacing: 1px;
         }
         .stat-card.purple .number { color: #8b5cf6; }
-        .stat-card.blue .number { color: #06b6d4; }
+        .stat-card.cyan .number { color: #06b6d4; }
         .stat-card.green .number { color: #22c55e; }
         .stat-card.orange .number { color: #f97316; }
 
@@ -95,7 +123,7 @@
             font-size: 14px;
         }
         .card.roadmap h2 .icon { background: #1e1b4b; color: #8b5cf6; }
-        .card.memory-bank h2 .icon { background: #042f2e; color: #06b6d4; }
+        .card.backlog h2 .icon { background: #042f2e; color: #06b6d4; }
         .card.activity h2 .icon { background: #431407; color: #f97316; }
         .full-width { grid-column: 1 / -1; }
 
@@ -173,13 +201,14 @@
             padding: 12px 16px;
             border-radius: 8px;
             background: #27272a;
-            border-left: 3px solid #71717a;
+            border-left: 3px solid #3f3f46;
             font-size: 13px;
             line-height: 1.5;
             color: #d4d4d8;
         }
         .roadmap-item.done { border-left-color: #22c55e; opacity: 0.7; }
         .roadmap-item.progress { border-left-color: #8b5cf6; }
+        .roadmap-item.todo { border-left-color: #71717a; }
         .roadmap-item.info { border-left-color: #06b6d4; }
         .status-badge {
             display: inline-block;
@@ -193,42 +222,32 @@
         }
         .roadmap-item.done .status-badge { background: #052e16; color: #4ade80; }
         .roadmap-item.progress .status-badge { background: #1e1b4b; color: #a78bfa; }
-        .roadmap-item.todo .status-badge { background: #27272a; color: #a1a1aa; border: 1px solid #3f3f46; }
-        .roadmap-item.info .status-badge { background: #042f2e; color: #06b6d4; }
+        .roadmap-item.todo .status-badge { background: #18181b; color: #a1a1aa; border: 1px solid #3f3f46; }
 
-        /* Memory Bank */
-        .memory-stat-grid {
+        /* Idea Backlog */
+        .backlog-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
-        .memory-stat-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 14px;
-            background: #27272a;
+        .backlog-item {
+            padding: 12px 16px;
             border-radius: 8px;
-            font-size: 14px;
-        }
-        .category-name {
+            background: #27272a;
+            border-left: 3px solid #06b6d4;
+            font-size: 13px;
+            line-height: 1.5;
             color: #d4d4d8;
-            text-transform: capitalize;
-            font-weight: 500;
         }
-        .stat-detail {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .stat-count {
-            color: #8b5cf6;
+        .backlog-item .idea-title {
             font-weight: 600;
-            font-size: 15px;
+            color: #e4e4e7;
+            display: block;
+            margin-bottom: 4px;
         }
-        .stat-time {
-            color: #52525b;
-            font-size: 11px;
+        .backlog-item .idea-detail {
+            color: #a1a1aa;
+            font-size: 12px;
         }
 
         /* Activity Log Timeline */
@@ -282,39 +301,47 @@
             padding-top: 16px;
             border-top: 1px solid #27272a;
         }
+        .footer a {
+            color: #71717a;
+        }
+        .footer a:hover {
+            color: #a1a1aa;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>Claude Memory Dashboard</h1>
-        <span class="timestamp">Last updated: 2026-01-29 23:01 | Auto-refreshes every 60s</span>
+        <div class="header-left">
+            <h1><a href="https://github.com/NaharPT/claude-memory">Claude Memory Dashboard</a></h1>
+            <a class="repo-link" href="https://github.com/NaharPT/claude-memory" target="_blank">GitHub</a>
+        </div>
+        <span class="timestamp">Last updated: 2026-01-29 23:13</span>
     </div>
 
     <div class="stats-row">
         <div class="stat-card purple">
-            <div class="number">5</div>
-            <div class="label">Total Phases</div>
+            <div class="number">4</div>
+            <div class="label">Active Phases</div>
         </div>
         <div class="stat-card green">
             <div class="number">1</div>
             <div class="label">Completed</div>
         </div>
-        <div class="stat-card blue">
+        <div class="stat-card cyan">
             <div class="number">1</div>
             <div class="label">In Progress</div>
         </div>
         <div class="stat-card orange">
-            <div class="number">21</div>
-            <div class="label">Memories</div>
+            <div class="number">1</div>
+            <div class="label">Ideas Parked</div>
         </div>
     </div>
 
     <div class="kanban">
         <div class="kanban-column todo">
-            <h3>To Do <span class="count">3</span></h3>
+            <h3>To Do <span class="count">2</span></h3>
             <div class="kanban-card">Phase 3 TODO: Reorganize imported data (separate Bills, Subscriptions, Transfers from Expenses). Then set up Budgets hierarchy</div>
             <div class="kanban-card">Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)</div>
-            <div class="kanban-card">Morning Briefs TODO: Automated 08:00 CET voice briefing via Telegram. OpenAI TTS (~0.015 EUR/day). Sources: wttr.in (weather), Google Calendar API, Notion API (tasks). ~90s audio, weekdays only. Includes one proactive suggestion per day. Phases: content design, tech setup, cron automation, 2-week validation</div>
         </div>
         <div class="kanban-column progress">
             <h3>In Progress <span class="count">1</span></h3>
@@ -331,62 +358,29 @@
             <h2><span class="icon">R</span> Project Roadmap</h2>
             <div class="roadmap-list">
                 <div class="roadmap-item info">
-                    <span class="status-badge">Project</span>
                     Auto Finance Merging (c:\Users\nfval\Projects\auto_finance_merging): Reconciliation system + Notion integration for personal finance
                 </div>
                 <div class="roadmap-item done">
-                    <span class="status-badge">Done</span>
-                    Phase 1 DONE: Built reconciliation system (GoodBudget CSV vs Commerzbank CSV) with multi-pass fuzzy matching and cluster detection
+                    <span class="status-badge">Done</span>Phase 1 DONE: Built reconciliation system (GoodBudget CSV vs Commerzbank CSV) with multi-pass fuzzy matching and cluster detection
                 </div>
                 <div class="roadmap-item progress">
-                    <span class="status-badge">Active</span>
-                    Phase 2 IN PROGRESS: Importing 12,111 GoodBudget transactions to Notion Finance OS. Import running overnight (started 2026-01-29 21:00)
+                    <span class="status-badge">In Progress</span>Phase 2 IN PROGRESS: Importing 12,111 GoodBudget transactions to Notion Finance OS. Import running overnight (started 2026-01-29 21:00)
                 </div>
                 <div class="roadmap-item todo">
-                    <span class="status-badge">Planned</span>
-                    Phase 3 TODO: Reorganize imported data (separate Bills, Subscriptions, Transfers from Expenses). Then set up Budgets hierarchy
+                    <span class="status-badge">To Do</span>Phase 3 TODO: Reorganize imported data (separate Bills, Subscriptions, Transfers from Expenses). Then set up Budgets hierarchy
                 </div>
                 <div class="roadmap-item todo">
-                    <span class="status-badge">Planned</span>
-                    Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)
-                </div>
-                <div class="roadmap-item todo">
-                    <span class="status-badge">Planned</span>
-                    Morning Briefs TODO: Automated 08:00 CET voice briefing via Telegram. OpenAI TTS (~0.015 EUR/day). Sources: wttr.in (weather), Google Calendar API, Notion API (tasks). ~90s audio, weekdays only. Includes one proactive suggestion per day. Phases: content design, tech setup, cron automation, 2-week validation
+                    <span class="status-badge">To Do</span>Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)
                 </div>
             </div>
         </div>
 
-        <div class="card memory-bank">
-            <h2><span class="icon">M</span> Memory Bank</h2>
-            <div class="memory-stat-grid">
-                <div class="memory-stat-row">
-                    <span class="category-name">Activity log</span>
-                    <div class="stat-detail">
-                        <span class="stat-count">5</span>
-                        <span class="stat-time">2026-01-29 23:01</span>
-                    </div>
-                </div>
-                <div class="memory-stat-row">
-                    <span class="category-name">Preferences</span>
-                    <div class="stat-detail">
-                        <span class="stat-count">5</span>
-                        <span class="stat-time">2026-01-29 22:09</span>
-                    </div>
-                </div>
-                <div class="memory-stat-row">
-                    <span class="category-name">Projects</span>
-                    <div class="stat-detail">
-                        <span class="stat-count">6</span>
-                        <span class="stat-time">2026-01-29 23:01</span>
-                    </div>
-                </div>
-                <div class="memory-stat-row">
-                    <span class="category-name">User profile</span>
-                    <div class="stat-detail">
-                        <span class="stat-count">5</span>
-                        <span class="stat-time">2026-01-29 22:09</span>
-                    </div>
+        <div class="card backlog">
+            <h2><span class="icon">?</span> Idea Backlog</h2>
+            <div class="backlog-list">
+                <div class="backlog-item">
+                    <span class="idea-title">Morning Briefs TODO</span>
+                    <span class="idea-detail">Automated 08:00 CET voice briefing via Telegram. OpenAI TTS (~0.015 EUR/day). Sources: wttr.in (weather), Google Calendar API, Notion API (tasks). ~90s audio, weekdays only. Includes one proactive suggestion per day. Phases: content design, tech setup, cron automation, 2-week validation</span>
                 </div>
             </div>
         </div>
@@ -434,7 +428,7 @@
     </div>
 
     <div class="footer">
-        Claude Memory System | 21 memories across 4 categories | Refresh: python memory.py dashboard
+        <a href="https://github.com/NaharPT/claude-memory">Claude Memory System</a> | 21 memories stored
     </div>
 </body>
 </html>
