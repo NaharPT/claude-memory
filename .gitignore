@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+.env
+data/task_runs.log

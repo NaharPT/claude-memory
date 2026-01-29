@@ -197,23 +197,48 @@ At the start of each session, read the memory files for context:
 
 
 def cmd_dashboard(args):
-    """Generate and open the dashboard."""
+    """Generate dashboard and optionally publish to GitHub Pages."""
     from src.dashboard_generator import save_dashboard
+    import shutil
+    import subprocess
 
-    output = None
-    if args:
-        output = args[0]
+    # Generate dashboard
+    memory_dir = os.path.dirname(os.path.abspath(__file__))
+    dashboard_path = save_dashboard(os.path.join(memory_dir, "dashboard.html"))
 
-    path = save_dashboard(output)
-    print(f"Dashboard saved to: {path}")
+    # Also save as index.html for GitHub Pages
+    index_path = os.path.join(memory_dir, "index.html")
+    shutil.copy2(dashboard_path, index_path)
 
-    # Try to open in browser
-    try:
-        import webbrowser
-        webbrowser.open(f"file:///{path}")
-        print("Opening in browser...")
-    except Exception:
-        print(f"Open manually: {path}")
+    print(f"Dashboard saved to: {dashboard_path}")
+
+    # Push to GitHub if --publish flag or repo exists
+    publish = "--publish" in args or "--push" in args
+
+    # Auto-detect if git repo exists
+    git_dir = os.path.join(memory_dir, ".git")
+    if os.path.isdir(git_dir):
+        try:
+            subprocess.run(
+                ["git", "add", "dashboard.html", "index.html", "memories/", "data/"],
+                cwd=memory_dir, capture_output=True
+            )
+            subprocess.run(
+                ["git", "commit", "-m", f"Dashboard update {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M')}"],
+                cwd=memory_dir, capture_output=True
+            )
+            result = subprocess.run(
+                ["git", "push"],
+                cwd=memory_dir, capture_output=True, text=True
+            )
+            if result.returncode == 0:
+                print("Published to: https://naharpt.github.io/claude-memory/")
+            else:
+                print(f"Git push note: {result.stderr.strip()[:100]}")
+        except Exception as e:
+            print(f"Could not publish: {e}")
+    else:
+        print("No git repo found. Run 'git init' to enable publishing.")
 
 
 def cmd_help(args=None):
