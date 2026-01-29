@@ -96,34 +96,69 @@
         .card.prefs h2 .icon { background: #052e16; color: #22c55e; }
         .card.decisions h2 .icon { background: #431407; color: #f97316; }
 
-        .task-list { list-style: none; }
-        .task-list li {
-            padding: 10px 12px;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            font-size: 14px;
-            line-height: 1.5;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
+        .kanban {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 32px;
         }
-        .task-list li .badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 11px;
+        .kanban-column {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 16px;
+            min-height: 200px;
+        }
+        .kanban-column h3 {
+            font-size: 14px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-            flex-shrink: 0;
+            letter-spacing: 1px;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+            border-bottom: 2px solid;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .task-list li.done { background: #052e16; }
-        .task-list li.done .badge { background: #22c55e; color: #052e16; }
-        .task-list li.progress { background: #1e1b4b; }
-        .task-list li.progress .badge { background: #8b5cf6; color: #1e1b4b; }
-        .task-list li.todo { background: #27272a; }
-        .task-list li.todo .badge { background: #71717a; color: #18181b; }
+        .kanban-column h3 .count {
+            background: #27272a;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        .kanban-column.todo h3 { border-color: #71717a; color: #a1a1aa; }
+        .kanban-column.progress h3 { border-color: #8b5cf6; color: #a78bfa; }
+        .kanban-column.done h3 { border-color: #22c55e; color: #4ade80; }
+
+        .kanban-card {
+            background: #27272a;
+            border: 1px solid #3f3f46;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #d4d4d8;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        .kanban-card:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .kanban-column.progress .kanban-card { border-left: 3px solid #8b5cf6; }
+        .kanban-column.todo .kanban-card { border-left: 3px solid #71717a; }
+        .kanban-column.done .kanban-card {
+            border-left: 3px solid #22c55e;
+            opacity: 0.7;
+        }
+        .kanban-empty {
+            color: #52525b;
+            font-size: 13px;
+            font-style: italic;
+            padding: 20px 0;
+            text-align: center;
+        }
 
         .memory-list { list-style: none; }
         .memory-list li {
@@ -152,7 +187,7 @@
 <body>
     <div class="header">
         <h1>Claude Memory Dashboard</h1>
-        <span class="timestamp">Last updated: 2026-01-29 22:33 | Auto-refreshes every 60s</span>
+        <span class="timestamp">Last updated: 2026-01-29 22:43 | Auto-refreshes every 60s</span>
     </div>
 
     <div class="stats-row">
@@ -174,17 +209,23 @@
         </div>
     </div>
 
-    <div class="grid">
-        <div class="card tasks full-width">
-            <h2><span class="icon">T</span> Project Tasks</h2>
-            <ul class="task-list">
-                <li class="progress"><span class="badge">In Progress</span> Phase 2 IN PROGRESS: Importing 12,111 GoodBudget transactions to Notion Finance OS. Import running overnight (started 2026-01-29 21:00)</li>
-                <li class="todo"><span class="badge">To Do</span> Phase 3 TODO: Reorganize imported data (separate Bills, Subscriptions, Transfers from Expenses). Then set up Budgets hierarchy</li>
-                <li class="todo"><span class="badge">To Do</span> Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)</li>
-                <li class="done"><span class="badge">Done</span> Phase 1 DONE: Built reconciliation system (GoodBudget CSV vs Commerzbank CSV) with multi-pass fuzzy matching and cluster detection</li>
-            </ul>
+    <div class="kanban">
+        <div class="kanban-column todo">
+            <h3>To Do <span class="count">2</span></h3>
+            <div class="kanban-card">Phase 3 TODO: Reorganize imported data (separate Bills, Subscriptions, Transfers from Expenses). Then set up Budgets hierarchy</div>
+            <div class="kanban-card">Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)</div>
         </div>
+        <div class="kanban-column progress">
+            <h3>In Progress <span class="count">1</span></h3>
+            <div class="kanban-card">Phase 2 IN PROGRESS: Importing 12,111 GoodBudget transactions to Notion Finance OS. Import running overnight (started 2026-01-29 21:00)</div>
+        </div>
+        <div class="kanban-column done">
+            <h3>Done <span class="count">1</span></h3>
+            <div class="kanban-card">Phase 1 DONE: Built reconciliation system (GoodBudget CSV vs Commerzbank CSV) with multi-pass fuzzy matching and cluster detection</div>
+        </div>
+    </div>
 
+    <div class="grid">
         <div class="card user">
             <h2><span class="icon">U</span> User Profile</h2>
             <ul class="memory-list">
