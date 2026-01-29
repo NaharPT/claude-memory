@@ -30,96 +30,54 @@
             align-items: center;
             gap: 16px;
         }
-        .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-        }
+        .header h1 { font-size: 28px; font-weight: 700; }
         .header h1 a {
             background: linear-gradient(135deg, #8b5cf6, #06b6d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
         }
-        .header h1 a:hover {
-            opacity: 0.85;
-            text-decoration: none;
-        }
+        .header h1 a:hover { opacity: 0.85; text-decoration: none; }
         .header .repo-link {
-            color: #52525b;
-            font-size: 13px;
-            padding: 4px 10px;
-            border: 1px solid #27272a;
-            border-radius: 6px;
-            transition: all 0.15s;
+            color: #52525b; font-size: 13px; padding: 4px 10px;
+            border: 1px solid #27272a; border-radius: 6px; transition: all 0.15s;
         }
-        .header .repo-link:hover {
-            color: #a1a1aa;
-            border-color: #3f3f46;
-            text-decoration: none;
-        }
-        .header .timestamp {
-            color: #71717a;
-            font-size: 14px;
-        }
+        .header .repo-link:hover { color: #a1a1aa; border-color: #3f3f46; text-decoration: none; }
+        .header .timestamp { color: #71717a; font-size: 14px; }
 
-        /* Stats Row */
         .stats-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-bottom: 32px;
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 16px; margin-bottom: 32px;
         }
         .stat-card {
-            background: #18181b;
-            border: 1px solid #27272a;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
+            background: #18181b; border: 1px solid #27272a;
+            border-radius: 12px; padding: 20px; text-align: center;
         }
-        .stat-card .number {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
+        .stat-card .number { font-size: 36px; font-weight: 700; margin-bottom: 4px; }
         .stat-card .label {
-            color: #71717a;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #71717a; font-size: 13px;
+            text-transform: uppercase; letter-spacing: 1px;
         }
         .stat-card.purple .number { color: #8b5cf6; }
         .stat-card.cyan .number { color: #06b6d4; }
         .stat-card.green .number { color: #22c55e; }
         .stat-card.orange .number { color: #f97316; }
 
-        /* Grid Layout */
         .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-            margin-bottom: 32px;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 24px; margin-bottom: 32px;
         }
         .card {
-            background: #18181b;
-            border: 1px solid #27272a;
-            border-radius: 12px;
-            padding: 24px;
+            background: #18181b; border: 1px solid #27272a;
+            border-radius: 12px; padding: 24px;
         }
         .card h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 18px; font-weight: 600; margin-bottom: 16px;
+            display: flex; align-items: center; gap: 8px;
         }
         .card h2 .icon {
-            width: 24px;
-            height: 24px;
-            border-radius: 6px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            width: 24px; height: 24px; border-radius: 6px;
+            display: inline-flex; align-items: center; justify-content: center;
             font-size: 14px;
         }
         .card.roadmap h2 .icon { background: #1e1b4b; color: #8b5cf6; }
@@ -127,186 +85,138 @@
         .card.activity h2 .icon { background: #431407; color: #f97316; }
         .full-width { grid-column: 1 / -1; }
 
-        /* Kanban Board */
+        /* Kanban */
         .kanban {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
-            margin-bottom: 32px;
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px; margin-bottom: 32px;
         }
         .kanban-column {
-            background: #18181b;
-            border: 1px solid #27272a;
-            border-radius: 12px;
-            padding: 16px;
-            min-height: 200px;
+            background: #18181b; border: 1px solid #27272a;
+            border-radius: 12px; padding: 16px; min-height: 200px;
         }
         .kanban-column h3 {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding-bottom: 12px;
-            margin-bottom: 12px;
-            border-bottom: 2px solid;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-size: 14px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 1px; padding-bottom: 12px; margin-bottom: 12px;
+            border-bottom: 2px solid; display: flex; align-items: center; gap: 8px;
         }
         .kanban-column h3 .count {
-            background: #27272a;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 12px;
+            background: #27272a; padding: 2px 8px; border-radius: 10px; font-size: 12px;
         }
         .kanban-column.todo h3 { border-color: #71717a; color: #a1a1aa; }
         .kanban-column.progress h3 { border-color: #8b5cf6; color: #a78bfa; }
         .kanban-column.done h3 { border-color: #22c55e; color: #4ade80; }
         .kanban-card {
-            background: #27272a;
-            border: 1px solid #3f3f46;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 8px;
-            font-size: 13px;
-            line-height: 1.5;
-            color: #d4d4d8;
-            transition: transform 0.1s, box-shadow 0.1s;
+            background: #27272a; border: 1px solid #3f3f46; border-radius: 8px;
+            padding: 12px; margin-bottom: 8px; font-size: 13px; line-height: 1.5;
+            color: #d4d4d8; transition: transform 0.1s, box-shadow 0.1s;
         }
         .kanban-card:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         .kanban-column.progress .kanban-card { border-left: 3px solid #8b5cf6; }
         .kanban-column.todo .kanban-card { border-left: 3px solid #71717a; }
-        .kanban-column.done .kanban-card {
-            border-left: 3px solid #22c55e;
-            opacity: 0.7;
-        }
+        .kanban-column.done .kanban-card { border-left: 3px solid #22c55e; opacity: 0.7; }
         .kanban-empty {
-            color: #52525b;
-            font-size: 13px;
-            font-style: italic;
-            padding: 20px 0;
-            text-align: center;
+            color: #52525b; font-size: 13px; font-style: italic;
+            padding: 20px 0; text-align: center;
         }
 
-        /* Project Roadmap */
-        .roadmap-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        /* Roadmap */
+        .roadmap-list { display: flex; flex-direction: column; gap: 10px; }
         .roadmap-item {
-            padding: 12px 16px;
-            border-radius: 8px;
-            background: #27272a;
-            border-left: 3px solid #3f3f46;
-            font-size: 13px;
-            line-height: 1.5;
-            color: #d4d4d8;
+            padding: 12px 16px; border-radius: 8px; background: #27272a;
+            border-left: 3px solid #3f3f46; font-size: 13px; line-height: 1.5; color: #d4d4d8;
         }
         .roadmap-item.done { border-left-color: #22c55e; opacity: 0.7; }
         .roadmap-item.progress { border-left-color: #8b5cf6; }
         .roadmap-item.todo { border-left-color: #71717a; }
         .roadmap-item.info { border-left-color: #06b6d4; }
         .status-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-right: 8px;
+            display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.5px; margin-right: 8px;
         }
         .roadmap-item.done .status-badge { background: #052e16; color: #4ade80; }
         .roadmap-item.progress .status-badge { background: #1e1b4b; color: #a78bfa; }
         .roadmap-item.todo .status-badge { background: #18181b; color: #a1a1aa; border: 1px solid #3f3f46; }
 
-        /* Idea Backlog */
-        .backlog-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+        /* Idea Backlog (interactive) */
+        .backlog-list { display: flex; flex-direction: column; gap: 10px; }
         .backlog-item {
-            padding: 12px 16px;
-            border-radius: 8px;
-            background: #27272a;
-            border-left: 3px solid #06b6d4;
-            font-size: 13px;
-            line-height: 1.5;
-            color: #d4d4d8;
+            padding: 12px 16px; border-radius: 8px; background: #27272a;
+            border-left: 3px solid #06b6d4; font-size: 13px; line-height: 1.5; color: #d4d4d8;
         }
-        .backlog-item .idea-title {
-            font-weight: 600;
-            color: #e4e4e7;
-            display: block;
-            margin-bottom: 4px;
+        .idea-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
         }
-        .backlog-item .idea-detail {
-            color: #a1a1aa;
-            font-size: 12px;
+        .priority-badge {
+            display: inline-flex; align-items: center; justify-content: center;
+            min-width: 32px; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+            cursor: pointer; transition: all 0.15s; user-select: none;
         }
+        .priority-badge:hover { transform: scale(1.1); }
+        .idea-title { font-weight: 600; color: #e4e4e7; flex: 1; }
+        .idea-status {
+            font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .idea-summary { color: #a1a1aa; font-size: 12px; margin-top: 4px; line-height: 1.5; }
+        .idea-folder {
+            margin-top: 6px; font-size: 11px; color: #06b6d4;
+            padding: 2px 0;
+        }
+        .idea-links { margin-top: 8px; }
+        .idea-spec-link {
+            font-size: 12px; color: #8b5cf6; text-decoration: none;
+            border-bottom: 1px dashed rgba(139,92,246,0.25);
+        }
+        .idea-spec-link:hover { color: #a78bfa; text-decoration: none; border-bottom-color: rgba(167,139,250,0.25); }
 
-        /* Activity Log Timeline */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
+        /* Activity Log */
+        .timeline { display: flex; flex-direction: column; }
         .timeline-entry {
-            padding: 12px 0;
-            border-bottom: 1px solid #27272a;
-            display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 16px;
-            font-size: 13px;
-            align-items: start;
+            padding: 12px 0; border-bottom: 1px solid #27272a;
+            display: grid; grid-template-columns: 150px 1fr;
+            gap: 16px; font-size: 13px; align-items: start;
         }
         .timeline-entry:last-child { border-bottom: none; }
-        .timeline-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
+        .timeline-meta { display: flex; flex-direction: column; gap: 4px; }
         .timeline-time {
-            color: #52525b;
-            font-size: 12px;
+            color: #52525b; font-size: 12px;
             font-family: 'Cascadia Code', 'Fira Code', monospace;
         }
         .context-badge {
-            display: inline-block;
-            padding: 1px 6px;
-            background: #1e1b4b;
-            color: #a78bfa;
-            border-radius: 4px;
-            font-size: 11px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 140px;
+            display: inline-block; padding: 1px 6px; background: #1e1b4b;
+            color: #a78bfa; border-radius: 4px; font-size: 11px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px;
         }
-        .timeline-text {
-            color: #d4d4d8;
-            line-height: 1.6;
+        .timeline-text { color: #d4d4d8; line-height: 1.6; }
+
+        /* Sync banner */
+        .sync-banner {
+            display: none; position: fixed; bottom: 24px; left: 50%;
+            transform: translateX(-50%); background: #1e1b4b;
+            border: 1px solid #8b5cf6; border-radius: 12px;
+            padding: 12px 20px; gap: 12px; align-items: center;
+            font-size: 13px; color: #e4e4e7;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4); z-index: 100;
         }
+        .sync-banner code {
+            background: #0f1117; padding: 4px 8px; border-radius: 4px;
+            font-family: 'Cascadia Code', monospace; font-size: 12px; color: #a78bfa;
+        }
+        .sync-dismiss {
+            background: none; border: 1px solid #3f3f46; color: #a1a1aa;
+            border-radius: 6px; padding: 4px 10px; cursor: pointer; font-size: 12px;
+        }
+        .sync-dismiss:hover { border-color: #8b5cf6; color: #e4e4e7; }
 
         .footer {
-            text-align: center;
-            color: #52525b;
-            font-size: 12px;
-            margin-top: 32px;
-            padding-top: 16px;
-            border-top: 1px solid #27272a;
+            text-align: center; color: #52525b; font-size: 12px;
+            margin-top: 32px; padding-top: 16px; border-top: 1px solid #27272a;
         }
-        .footer a {
-            color: #71717a;
-        }
-        .footer a:hover {
-            color: #a1a1aa;
-        }
+        .footer a { color: #71717a; }
+        .footer a:hover { color: #a1a1aa; }
     </style>
 </head>
 <body>
@@ -315,7 +225,7 @@
             <h1><a href="https://github.com/NaharPT/claude-memory">Claude Memory Dashboard</a></h1>
             <a class="repo-link" href="https://github.com/NaharPT/claude-memory" target="_blank">GitHub</a>
         </div>
-        <span class="timestamp">Last updated: 2026-01-29 23:13</span>
+        <span class="timestamp">Last updated: 2026-01-29 23:26</span>
     </div>
 
     <div class="stats-row">
@@ -377,11 +287,8 @@
 
         <div class="card backlog">
             <h2><span class="icon">?</span> Idea Backlog</h2>
-            <div class="backlog-list">
-                <div class="backlog-item">
-                    <span class="idea-title">Morning Briefs TODO</span>
-                    <span class="idea-detail">Automated 08:00 CET voice briefing via Telegram. OpenAI TTS (~0.015 EUR/day). Sources: wttr.in (weather), Google Calendar API, Notion API (tasks). ~90s audio, weekdays only. Includes one proactive suggestion per day. Phases: content design, tech setup, cron automation, 2-week validation</span>
-                </div>
+            <div id="idea-backlog-list" class="backlog-list">
+                <div class="kanban-empty">Loading ideas...</div>
             </div>
         </div>
 
@@ -427,8 +334,98 @@
         </div>
     </div>
 
+    <div id="sync-banner" class="sync-banner">
+        Priorities changed.
+        Tell Claude: <code>python memory.py idea priority &lt;id&gt; &lt;1-3&gt;</code>
+        <button class="sync-dismiss" onclick="this.parentElement.style.display='none'">Dismiss</button>
+    </div>
+
     <div class="footer">
         <a href="https://github.com/NaharPT/claude-memory">Claude Memory System</a> | 21 memories stored
     </div>
+
+    <script>
+    const IDEAS_DATA = [{"id": "morning-briefs", "title": "Morning Briefs", "summary": "Automated 08:00 CET voice briefing via Telegram. Weather, calendar, tasks, one proactive suggestion. ~90s audio, weekdays only.", "priority": 0, "project_folder": null, "detail_file": "memories/ideas/morning-briefs.md", "created": "2026-01-29", "status": "parked"}];
+    const GITHUB_BLOB = 'https://github.com/NaharPT/claude-memory/blob/main/';
+
+    const P_LABELS = {0: '--', 1: 'P1', 2: 'P2', 3: 'P3'};
+    const P_STYLES = {
+        0: {bg: '#27272a', fg: '#71717a', br: '#3f3f46'},
+        1: {bg: '#431407', fg: '#fb923c', br: '#f97316'},
+        2: {bg: '#422006', fg: '#fbbf24', br: '#eab308'},
+        3: {bg: '#18181b', fg: '#a1a1aa', br: '#3f3f46'},
+    };
+    const S_COLORS = {active: '#8b5cf6', done: '#22c55e', parked: '#52525b'};
+
+    function loadPriorities() {
+        try { return JSON.parse(localStorage.getItem('idea_priorities') || '{}'); }
+        catch(e) { return {}; }
+    }
+
+    function savePriority(id, p) {
+        const saved = loadPriorities();
+        saved[id] = p;
+        localStorage.setItem('idea_priorities', JSON.stringify(saved));
+    }
+
+    function renderIdeas() {
+        const el = document.getElementById('idea-backlog-list');
+        const saved = loadPriorities();
+
+        const ideas = IDEAS_DATA.map(i => ({
+            ...i,
+            priority: saved[i.id] !== undefined ? saved[i.id] : i.priority
+        }));
+
+        ideas.sort((a, b) => (a.priority || 99) - (b.priority || 99));
+
+        if (!ideas.length) {
+            el.innerHTML = '<div class="kanban-empty">No ideas parked yet.</div>';
+            return;
+        }
+
+        el.innerHTML = ideas.map(idea => {
+            const ps = P_STYLES[idea.priority] || P_STYLES[0];
+            const pl = P_LABELS[idea.priority] || '--';
+            const sc = S_COLORS[idea.status] || S_COLORS.parked;
+
+            let h = '<div class="backlog-item">';
+            h += '<div class="idea-header">';
+            h += '<span class="priority-badge" data-id="' + idea.id + '" ';
+            h += 'style="background:' + ps.bg + ';color:' + ps.fg + ';border:1px solid ' + ps.br + '" ';
+            h += 'title="Click to change priority">' + pl + '</span>';
+            h += '<span class="idea-title">' + idea.title + '</span>';
+            h += '<span class="idea-status" style="color:' + sc + '">' + idea.status + '</span>';
+            h += '</div>';
+            h += '<div class="idea-summary">' + idea.summary + '</div>';
+
+            if (idea.project_folder) {
+                var fname = idea.project_folder.replace(/\\/g, '/').split('/').pop();
+                h += '<div class="idea-folder">Project: ' + fname + '</div>';
+            }
+
+            h += '<div class="idea-links">';
+            h += '<a href="' + GITHUB_BLOB + idea.detail_file + '" target="_blank" class="idea-spec-link">View full spec</a>';
+            h += '</div>';
+            h += '</div>';
+            return h;
+        }).join('');
+
+        el.querySelectorAll('.priority-badge').forEach(badge => {
+            badge.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var id = this.dataset.id;
+                var idea = ideas.find(function(i) { return i.id === id; });
+                var np = ((idea.priority || 0) + 1) % 4;
+                savePriority(id, np);
+                renderIdeas();
+                document.getElementById('sync-banner').style.display = 'flex';
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', renderIdeas);
+    </script>
+
 </body>
 </html>

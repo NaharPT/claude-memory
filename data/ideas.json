@@ -1,0 +1,14 @@
+{
+  "ideas": [
+    {
+      "id": "morning-briefs",
+      "title": "Morning Briefs",
+      "summary": "Automated 08:00 CET voice briefing via Telegram. Weather, calendar, tasks, one proactive suggestion. ~90s audio, weekdays only.",
+      "priority": 0,
+      "project_folder": null,
+      "detail_file": "memories/ideas/morning-briefs.md",
+      "created": "2026-01-29",
+      "status": "parked"
+    }
+  ]
+}
