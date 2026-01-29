@@ -106,8 +106,39 @@ The briefing follows this order (~90 seconds total):
 
 ---
 
+## Content Optimization Plan
+
+Follow-up task to refine and optimize the morning briefing content after initial launch.
+
+### 1. Analysis Phase
+- Review 2 weeks of morning briefing transcripts
+- Track which items user engages with vs skips
+- Identify information hierarchy (what's most valuable)
+- Note timing issues (too early? too late?)
+
+### 2. Content Optimization
+- Reorder sections by priority: critical -> important -> nice-to-know
+- Remove low-value items (weather if staying home, etc.)
+- Add context to calendar events (travel time, prep needed)
+- Refine proactive suggestions (1 high-impact item only)
+
+### 3. Format Testing
+- Test A/B versions: current vs optimized
+- Gather feedback after 1 week each
+- Measure: engagement time, action rate, satisfaction
+
+### 4. Documentation
+- Create briefing content template in project folder
+- Document decision rules (when to include/exclude items)
+- Version the template for future iteration
+
+**Deliverable**: Optimized briefing structure that maximizes value in minimal time.
+
+---
+
 ## Notes
 
 - Captured from session 2026-01-29
+- Content optimization plan added 2026-01-29
 - Status: Parked for future implementation
 - Priority to be defined

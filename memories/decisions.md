@@ -22,3 +22,7 @@
 
 ### 2026-01-29 23:01
 - Idea logged: Morning Briefs system - daily voice briefing at 08:00 CET via Telegram. Stack: OpenAI TTS (alloy/nova voice), wttr.in weather API, Google Calendar API, Notion API for tasks. Phases: content design, technical setup, cron automation, 2-week testing cycle. Parked for future implementation. Idea backlog - morning briefs
+
+### 2026-01-29 23:29
+*Context: Genome Insight - architecture*
+- Genome Insight: 3-layer architecture - Hard layer (ClinVar/PharmGKB raw annotations), Interpretation layer (rules-based conservative translation with evidence tiers), LLM narrative layer (optional, off by default, only restructures facts into prose, never invents biology). Facts stay auditable even if narrative gets poetic.

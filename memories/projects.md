@@ -27,3 +27,7 @@
 ### 2026-01-29 23:01
 *Context: Idea backlog*
 - Morning Briefs TODO: Automated 08:00 CET voice briefing via Telegram. OpenAI TTS (~0.015 EUR/day). Sources: wttr.in (weather), Google Calendar API, Notion API (tasks). ~90s audio, weekdays only. Includes one proactive suggestion per day. Phases: content design, tech setup, cron automation, 2-week validation
+
+### 2026-01-29 23:29
+*Context: New project*
+- Genome Insight Pipeline (c:\Users\nfval\Projects\genome-insight): Local-first pipeline that parses consumer genotyping exports (23andMe etc.) and produces interpretable reports using ClinVar + PharmGKB

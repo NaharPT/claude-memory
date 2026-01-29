@@ -9,6 +9,26 @@
       "detail_file": "memories/ideas/morning-briefs.md",
       "created": "2026-01-29",
       "status": "parked"
+    },
+    {
+      "id": "genome-insight-pipeline",
+      "title": "Genome Insight Pipeline",
+      "summary": "Local-first genotyping analysis pipeline. Parses 23andMe/Ancestry/MyHeritage exports, maps to ClinVar + PharmGKB, produces 3 reports (genetic traits, disease risk, action protocol). 3-layer architecture: hard annotations, rule-based interpretation, optional LLM narration.",
+      "priority": 1,
+      "project_folder": "c:\\Users\\nfval\\Projects\\genome-insight",
+      "detail_file": "memories/ideas/genome-insight-pipeline.md",
+      "created": "2026-01-29",
+      "status": "active"
+    },
+    {
+      "id": "dashboard-overhaul",
+      "title": "Dashboard Overhaul",
+      "summary": "Significantly improve the Claude Memory Dashboard. Real-time project health, cross-project insights, interactive features (drag-drop kanban, inline notes, search), data visualizations (Chart.js), mobile-friendly responsive design, session history widget.",
+      "priority": 0,
+      "project_folder": "c:\\Users\\nfval\\Projects\\claude-memory",
+      "detail_file": "memories/ideas/dashboard-overhaul.md",
+      "created": "2026-01-29",
+      "status": "parked"
     }
   ]
 }
