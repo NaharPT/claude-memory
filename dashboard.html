@@ -33,6 +33,8 @@
             color: #71717a;
             font-size: 14px;
         }
+
+        /* Stats Row */
         .stats-row {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -62,6 +64,7 @@
         .stat-card.green .number { color: #22c55e; }
         .stat-card.orange .number { color: #f97316; }
 
+        /* Grid Layout */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -91,11 +94,12 @@
             justify-content: center;
             font-size: 14px;
         }
-        .card.tasks h2 .icon { background: #1e1b4b; color: #8b5cf6; }
-        .card.user h2 .icon { background: #042f2e; color: #06b6d4; }
-        .card.prefs h2 .icon { background: #052e16; color: #22c55e; }
-        .card.decisions h2 .icon { background: #431407; color: #f97316; }
+        .card.roadmap h2 .icon { background: #1e1b4b; color: #8b5cf6; }
+        .card.memory-bank h2 .icon { background: #042f2e; color: #06b6d4; }
+        .card.activity h2 .icon { background: #431407; color: #f97316; }
+        .full-width { grid-column: 1 / -1; }
 
+        /* Kanban Board */
         .kanban {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -130,7 +134,6 @@
         .kanban-column.todo h3 { border-color: #71717a; color: #a1a1aa; }
         .kanban-column.progress h3 { border-color: #8b5cf6; color: #a78bfa; }
         .kanban-column.done h3 { border-color: #22c55e; color: #4ade80; }
-
         .kanban-card {
             background: #27272a;
             border: 1px solid #3f3f46;
@@ -160,18 +163,115 @@
             text-align: center;
         }
 
-        .memory-list { list-style: none; }
-        .memory-list li {
-            padding: 8px 0;
-            font-size: 14px;
-            line-height: 1.5;
-            border-bottom: 1px solid #27272a;
-            color: #a1a1aa;
+        /* Project Roadmap */
+        .roadmap-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        .memory-list li:last-child { border-bottom: none; }
+        .roadmap-item {
+            padding: 12px 16px;
+            border-radius: 8px;
+            background: #27272a;
+            border-left: 3px solid #71717a;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #d4d4d8;
+        }
+        .roadmap-item.done { border-left-color: #22c55e; opacity: 0.7; }
+        .roadmap-item.progress { border-left-color: #8b5cf6; }
+        .roadmap-item.info { border-left-color: #06b6d4; }
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-right: 8px;
+        }
+        .roadmap-item.done .status-badge { background: #052e16; color: #4ade80; }
+        .roadmap-item.progress .status-badge { background: #1e1b4b; color: #a78bfa; }
+        .roadmap-item.todo .status-badge { background: #27272a; color: #a1a1aa; border: 1px solid #3f3f46; }
+        .roadmap-item.info .status-badge { background: #042f2e; color: #06b6d4; }
 
-        .full-width {
-            grid-column: 1 / -1;
+        /* Memory Bank */
+        .memory-stat-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .memory-stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 14px;
+            background: #27272a;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .category-name {
+            color: #d4d4d8;
+            text-transform: capitalize;
+            font-weight: 500;
+        }
+        .stat-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .stat-count {
+            color: #8b5cf6;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .stat-time {
+            color: #52525b;
+            font-size: 11px;
+        }
+
+        /* Activity Log Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .timeline-entry {
+            padding: 12px 0;
+            border-bottom: 1px solid #27272a;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 16px;
+            font-size: 13px;
+            align-items: start;
+        }
+        .timeline-entry:last-child { border-bottom: none; }
+        .timeline-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .timeline-time {
+            color: #52525b;
+            font-size: 12px;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+        }
+        .context-badge {
+            display: inline-block;
+            padding: 1px 6px;
+            background: #1e1b4b;
+            color: #a78bfa;
+            border-radius: 4px;
+            font-size: 11px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 140px;
+        }
+        .timeline-text {
+            color: #d4d4d8;
+            line-height: 1.6;
         }
 
         .footer {
@@ -187,13 +287,13 @@
 <body>
     <div class="header">
         <h1>Claude Memory Dashboard</h1>
-        <span class="timestamp">Last updated: 2026-01-29 22:43 | Auto-refreshes every 60s</span>
+        <span class="timestamp">Last updated: 2026-01-29 22:58 | Auto-refreshes every 60s</span>
     </div>
 
     <div class="stats-row">
         <div class="stat-card purple">
             <div class="number">4</div>
-            <div class="label">Total Tasks</div>
+            <div class="label">Total Phases</div>
         </div>
         <div class="stat-card green">
             <div class="number">1</div>
@@ -204,8 +304,8 @@
             <div class="label">In Progress</div>
         </div>
         <div class="stat-card orange">
-            <div class="number">2</div>
-            <div class="label">To Do</div>
+            <div class="number">19</div>
+            <div class="label">Memories</div>
         </div>
     </div>
 
@@ -226,41 +326,103 @@
     </div>
 
     <div class="grid">
-        <div class="card user">
-            <h2><span class="icon">U</span> User Profile</h2>
-            <ul class="memory-list">
-                <li>Nuno (nunovalerio) - does not code, uses vibe coding approach with Claude</li>
-                <li>Has a partner named Karo (referenced in joint accounts K&N)</li>
-                <li>Uses GoodBudget for personal finance tracking since 2015</li>
-                <li>Has Commerzbank bank account in Germany (uses Euro)</li>
-                <li>Prefers simple, clear solutions. Appreciates thoroughness and intelligence in responses</li>
-            </ul>
+        <div class="card roadmap">
+            <h2><span class="icon">R</span> Project Roadmap</h2>
+            <div class="roadmap-list">
+                <div class="roadmap-item info">
+                    <span class="status-badge">Project</span>
+                    Auto Finance Merging (c:\Users\nfval\Projects\auto_finance_merging): Reconciliation system + Notion integration for personal finance
+                </div>
+                <div class="roadmap-item done">
+                    <span class="status-badge">Done</span>
+                    Phase 1 DONE: Built reconciliation system (GoodBudget CSV vs Commerzbank CSV) with multi-pass fuzzy matching and cluster detection
+                </div>
+                <div class="roadmap-item progress">
+                    <span class="status-badge">Active</span>
+                    Phase 2 IN PROGRESS: Importing 12,111 GoodBudget transactions to Notion Finance OS. Import running overnight (started 2026-01-29 21:00)
+                </div>
+                <div class="roadmap-item todo">
+                    <span class="status-badge">Planned</span>
+                    Phase 3 TODO: Reorganize imported data (separate Bills, Subscriptions, Transfers from Expenses). Then set up Budgets hierarchy
+                </div>
+                <div class="roadmap-item todo">
+                    <span class="status-badge">Planned</span>
+                    Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)
+                </div>
+            </div>
         </div>
 
-        <div class="card prefs">
-            <h2><span class="icon">P</span> Preferences</h2>
-            <ul class="memory-list">
-                <li>Default language: Python. Follow PEP 8</li>
-                <li>Project structure: src/ for code, data/ for files, tests/ for tests</li>
-                <li>Always use .env for secrets, .env.example for placeholders</li>
-                <li>Single-command execution via run.ps1</li>
-                <li>Platform: Windows. Uses PowerShell. Console encoding cp1252 - avoid unicode chars like arrows in print statements</li>
-            </ul>
+        <div class="card memory-bank">
+            <h2><span class="icon">M</span> Memory Bank</h2>
+            <div class="memory-stat-grid">
+                <div class="memory-stat-row">
+                    <span class="category-name">Activity log</span>
+                    <div class="stat-detail">
+                        <span class="stat-count">4</span>
+                        <span class="stat-time">2026-01-29 22:09</span>
+                    </div>
+                </div>
+                <div class="memory-stat-row">
+                    <span class="category-name">Preferences</span>
+                    <div class="stat-detail">
+                        <span class="stat-count">5</span>
+                        <span class="stat-time">2026-01-29 22:09</span>
+                    </div>
+                </div>
+                <div class="memory-stat-row">
+                    <span class="category-name">Projects</span>
+                    <div class="stat-detail">
+                        <span class="stat-count">5</span>
+                        <span class="stat-time">2026-01-29 22:09</span>
+                    </div>
+                </div>
+                <div class="memory-stat-row">
+                    <span class="category-name">User profile</span>
+                    <div class="stat-detail">
+                        <span class="stat-count">5</span>
+                        <span class="stat-time">2026-01-29 22:09</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="card decisions full-width">
-            <h2><span class="icon">D</span> Key Decisions</h2>
-            <ul class="memory-list">
-                <li>Notion Finance OS: Property names have trailing/leading spaces (Amount_, Category_, _Record Name) - must use exact names in API calls</li>
-                <li>Notion Finance OS: Expense Status options are Paid/Pending/Scheduled. Income Status options are Received/Pending/Expected</li>
-                <li>Notion Finance OS: 22 databases found in Backend page. Key IDs - Accounts: 2eecc31f-2839-81f0-af05-eaa513611f84, Expenses: 2eecc31f-2839-81a4-940f-df3784949765, Income: 2eecc31f-2839-81d2-8634-e11419f36578, Categories: 2eecc31f-2839-81e7-9cb2-f4320823185b</li>
-                <li>Chose safe import speed (0.4 tx/sec with 0.1s delay) for Notion API to avoid rate limiting during bulk import</li>
-            </ul>
+        <div class="card activity full-width">
+            <h2><span class="icon">A</span> Activity Log</h2>
+            <div class="timeline">
+                <div class="timeline-entry">
+                    <div class="timeline-meta">
+                        <span class="timeline-time">2026-01-29 22:09</span>
+                        <span class="context-badge">Finance project</span>
+                    </div>
+                    <span class="timeline-text">Chose safe import speed (0.4 tx/sec with 0.1s delay) for Notion API to avoid rate limiting during bulk import</span>
+                </div>
+                <div class="timeline-entry">
+                    <div class="timeline-meta">
+                        <span class="timeline-time">2026-01-29 22:09</span>
+                        <span class="context-badge">Finance project - database IDs</span>
+                    </div>
+                    <span class="timeline-text">Notion Finance OS: 22 databases found in Backend page. Key IDs - Accounts: 2eecc31f-2839-81f0-af05-eaa513611f84, Expenses: 2eecc31f-2839-81a4-940f-df3784949765, Income: 2eecc31f-2839-81d2-8634-e11419f36578, Categories: 2eecc31f-2839-81e7-9cb2-f4320823185b</span>
+                </div>
+                <div class="timeline-entry">
+                    <div class="timeline-meta">
+                        <span class="timeline-time">2026-01-29 22:09</span>
+                        <span class="context-badge">Finance project</span>
+                    </div>
+                    <span class="timeline-text">Notion Finance OS: Expense Status options are Paid/Pending/Scheduled. Income Status options are Received/Pending/Expected</span>
+                </div>
+                <div class="timeline-entry">
+                    <div class="timeline-meta">
+                        <span class="timeline-time">2026-01-29 22:09</span>
+                        <span class="context-badge">Finance project - critical bug</span>
+                    </div>
+                    <span class="timeline-text">Notion Finance OS: Property names have trailing/leading spaces (Amount_, Category_, _Record Name) - must use exact names in API calls</span>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="footer">
-        Claude Memory System | 19 memories stored | Refresh: python memory.py dashboard
+        Claude Memory System | 19 memories across 4 categories | Refresh: python memory.py dashboard
     </div>
 </body>
 </html>
