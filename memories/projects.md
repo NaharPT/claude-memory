@@ -1,0 +1,25 @@
+# Projects
+
+> Active projects, status, key decisions, architecture
+
+---
+
+### 2026-01-29 22:09
+*Context: Active project*
+- Auto Finance Merging (c:\Users\nfval\Projects\auto_finance_merging): Reconciliation system + Notion integration for personal finance
+
+### 2026-01-29 22:09
+*Context: Finance project*
+- Phase 1 DONE: Built reconciliation system (GoodBudget CSV vs Commerzbank CSV) with multi-pass fuzzy matching and cluster detection
+
+### 2026-01-29 22:09
+*Context: Finance project*
+- Phase 2 IN PROGRESS: Importing 12,111 GoodBudget transactions to Notion Finance OS. Import running overnight (started 2026-01-29 21:00)
+
+### 2026-01-29 22:09
+*Context: Finance project*
+- Phase 3 TODO: Reorganize imported data (separate Bills, Subscriptions, Transfers from Expenses). Then set up Budgets hierarchy
+
+### 2026-01-29 22:09
+*Context: Finance project*
+- Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)

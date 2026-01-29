@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60">
+    <title>Claude Memory Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f1117;
+            color: #e4e4e7;
+            padding: 24px;
+            min-height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #27272a;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header .timestamp {
+            color: #71717a;
+            font-size: 14px;
+        }
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .stat-card .label {
+            color: #71717a;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .stat-card.purple .number { color: #8b5cf6; }
+        .stat-card.blue .number { color: #06b6d4; }
+        .stat-card.green .number { color: #22c55e; }
+        .stat-card.orange .number { color: #f97316; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .card {
+            background: #18181b;
+            border: 1px solid #27272a;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .card h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card h2 .icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        .card.tasks h2 .icon { background: #1e1b4b; color: #8b5cf6; }
+        .card.user h2 .icon { background: #042f2e; color: #06b6d4; }
+        .card.prefs h2 .icon { background: #052e16; color: #22c55e; }
+        .card.decisions h2 .icon { background: #431407; color: #f97316; }
+
+        .task-list { list-style: none; }
+        .task-list li {
+            padding: 10px 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .task-list li .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .task-list li.done { background: #052e16; }
+        .task-list li.done .badge { background: #22c55e; color: #052e16; }
+        .task-list li.progress { background: #1e1b4b; }
+        .task-list li.progress .badge { background: #8b5cf6; color: #1e1b4b; }
+        .task-list li.todo { background: #27272a; }
+        .task-list li.todo .badge { background: #71717a; color: #18181b; }
+
+        .memory-list { list-style: none; }
+        .memory-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            border-bottom: 1px solid #27272a;
+            color: #a1a1aa;
+        }
+        .memory-list li:last-child { border-bottom: none; }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .footer {
+            text-align: center;
+            color: #52525b;
+            font-size: 12px;
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #27272a;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Claude Memory Dashboard</h1>
+        <span class="timestamp">Last updated: 2026-01-29 22:15 | Auto-refreshes every 60s</span>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat-card purple">
+            <div class="number">4</div>
+            <div class="label">Total Tasks</div>
+        </div>
+        <div class="stat-card green">
+            <div class="number">1</div>
+            <div class="label">Completed</div>
+        </div>
+        <div class="stat-card blue">
+            <div class="number">1</div>
+            <div class="label">In Progress</div>
+        </div>
+        <div class="stat-card orange">
+            <div class="number">2</div>
+            <div class="label">To Do</div>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="card tasks full-width">
+            <h2><span class="icon">T</span> Project Tasks</h2>
+            <ul class="task-list">
+                <li class="progress"><span class="badge">In Progress</span> Phase 2 IN PROGRESS: Importing 12,111 GoodBudget transactions to Notion Finance OS. Import running overnight (started 2026-01-29 21:00)</li>
+                <li class="todo"><span class="badge">To Do</span> Phase 3 TODO: Reorganize imported data (separate Bills, Subscriptions, Transfers from Expenses). Then set up Budgets hierarchy</li>
+                <li class="todo"><span class="badge">To Do</span> Phase 4 TODO: Ongoing bank reconciliation against Notion (not GoodBudget)</li>
+                <li class="done"><span class="badge">Done</span> Phase 1 DONE: Built reconciliation system (GoodBudget CSV vs Commerzbank CSV) with multi-pass fuzzy matching and cluster detection</li>
+            </ul>
+        </div>
+
+        <div class="card user">
+            <h2><span class="icon">U</span> User Profile</h2>
+            <ul class="memory-list">
+                <li>Nuno (nunovalerio) - does not code, uses vibe coding approach with Claude</li>
+                <li>Has a partner named Karo (referenced in joint accounts K&N)</li>
+                <li>Uses GoodBudget for personal finance tracking since 2015</li>
+                <li>Has Commerzbank bank account in Germany (uses Euro)</li>
+                <li>Prefers simple, clear solutions. Appreciates thoroughness and intelligence in responses</li>
+            </ul>
+        </div>
+
+        <div class="card prefs">
+            <h2><span class="icon">P</span> Preferences</h2>
+            <ul class="memory-list">
+                <li>Default language: Python. Follow PEP 8</li>
+                <li>Project structure: src/ for code, data/ for files, tests/ for tests</li>
+                <li>Always use .env for secrets, .env.example for placeholders</li>
+                <li>Single-command execution via run.ps1</li>
+                <li>Platform: Windows. Uses PowerShell. Console encoding cp1252 - avoid unicode chars like arrows in print statements</li>
+            </ul>
+        </div>
+
+        <div class="card decisions full-width">
+            <h2><span class="icon">D</span> Key Decisions</h2>
+            <ul class="memory-list">
+                <li>Notion Finance OS: Property names have trailing/leading spaces (Amount_, Category_, _Record Name) - must use exact names in API calls</li>
+                <li>Notion Finance OS: Expense Status options are Paid/Pending/Scheduled. Income Status options are Received/Pending/Expected</li>
+                <li>Notion Finance OS: 22 databases found in Backend page. Key IDs - Accounts: 2eecc31f-2839-81f0-af05-eaa513611f84, Expenses: 2eecc31f-2839-81a4-940f-df3784949765, Income: 2eecc31f-2839-81d2-8634-e11419f36578, Categories: 2eecc31f-2839-81e7-9cb2-f4320823185b</li>
+                <li>Chose safe import speed (0.4 tx/sec with 0.1s delay) for Notion API to avoid rate limiting during bulk import</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer">
+        Claude Memory System | 19 memories stored | Refresh: python memory.py dashboard
+    </div>
+</body>
+</html>

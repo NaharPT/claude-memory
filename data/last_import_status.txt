@@ -1,0 +1,11 @@
+Import Status (2026-01-29 22:18:43)
+==================================================
+  Expenses        2170
+  Income          291
+  Accounts        20
+  Categories      33
+
+  TOTAL: 2514
+  Target: 12,111 transactions
+
+  Progress: 20.8%
