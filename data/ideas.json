@@ -29,6 +29,16 @@
       "detail_file": "memories/ideas/dashboard-overhaul.md",
       "created": "2026-01-29",
       "status": "parked"
+    },
+    {
+      "id": "claude-cron-automation",
+      "title": "Claude Cron Automation",
+      "summary": "Scheduled autonomous tasks that run on cron/Task Scheduler. Accumulate data over time, build databases from scratch (ClinVar index, PharmGKB cache, finance reconciliation), auto-publish dashboard, health-check projects. Simple Python runner with YAML config, SQLite for accumulated state, upgrade path to Claude SDK agent.",
+      "priority": 0,
+      "project_folder": null,
+      "detail_file": "memories/ideas/claude-cron-automation.md",
+      "created": "2026-01-29",
+      "status": "parked"
     }
   ]
 }
